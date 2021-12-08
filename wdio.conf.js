@@ -1,3 +1,4 @@
+var baseUrl = 'https://femaledaily.com/';
 exports.config = {
     //
     // ====================
@@ -95,7 +96,7 @@ exports.config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: 'http://localhost',
+    baseUrl: baseUrl,
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,
@@ -133,16 +134,23 @@ exports.config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-    reporters: ['spec'],
-
-
-    
+    reporters: [
+        'spec',
+        [
+            'allure',
+            {
+                outputDir: 'allure-results',
+                disableWebdriverStepsReporting: true,
+                disableWebdriverScreenshotsReporting: true, 
+            },
+        ],
+    ],    
     //
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/
     mochaOpts: {
         ui: 'bdd',
-        timeout: 60000
+        timeout: 120000
     },
     //
     // =====
