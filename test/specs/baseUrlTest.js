@@ -1,8 +1,10 @@
 const assert = require("assert");
 const expectedPageTitle = "Login - Female Daily";
+const allureReporter = require('@wdio/allure-reporter').default;
 
 describe("Login to wordpress", () => {
   it("Should login with valid credentials", async () => {
+    allureReporter.addFeature('Login to wordpress')
     await browser.url('/');
     await browser.pause(7000);
 
