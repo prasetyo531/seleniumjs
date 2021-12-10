@@ -1,5 +1,5 @@
 const assert = require("assert");
-const expectedPageTitle = "Dashboard ‹ wdiotraining — WordPress";
+const expectedPageTitle = "Login - Female Daily";
 
 describe("Login to wordpress", () => {
   it("Should login with valid credentials", async () => {
@@ -18,7 +18,7 @@ describe("Login to wordpress", () => {
     await userPass.setValue("wdiopass");
     await browser.pause(2000);
 
-    const submitBtn = await browser.$("#wp-submit");
+    const submitBtn = await browser.$("#id_btn_login");
     await submitBtn.click();
 
     await browser.pause(2000);
