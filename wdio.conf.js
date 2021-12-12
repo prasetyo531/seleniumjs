@@ -1,4 +1,9 @@
-var baseUrl = 'https://femaledaily.com/';
+var baseUrl;
+if(process.env.SERVER === 'prod') {
+	baseUrl = 'https://femaledaily.com/';
+	} else {
+		baseUrl= "http://detik.com";
+	}
 exports.config = {
     //
     // ====================
