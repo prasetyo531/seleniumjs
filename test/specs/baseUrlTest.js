@@ -1,4 +1,3 @@
-const assert = require("assert");
 const expectedPageTitle = "Login - Female Daily";
 const allureReporter = require('@wdio/allure-reporter').default;
 
@@ -26,7 +25,10 @@ describe("Login to wordpress", () => {
     await browser.pause(2000);
     const pageTitle = await browser.getTitle();
 
+    //assert node
     assert.strict.equal(pageTitle, expectedPageTitle);
+    //asset chai
+    expect(pageTitle).to.equal('Login - Female Daily');
 
     await browser.pause(2000);
   });
