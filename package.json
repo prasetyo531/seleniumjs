@@ -12,7 +12,6 @@
     "@wdio/cli": "^7.16.10",
     "expect-webdriverio": "^3.1.4",
     "geckodriver": "^2.0.4",
-    "mocha": "^5.2.0",
     "selenium": "^2.20.0",
     "standalone": "0.0.1"
   },

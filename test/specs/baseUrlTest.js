@@ -1,6 +1,8 @@
 const expectedPageTitle = "Login - Female Daily";
 const allureReporter = require('@wdio/allure-reporter').default;
 
+var accountNotFound = "(//h1[normalize-space()='Uh-oh! Account not found!'])[1]";
+
 describe("Login to wordpress", () => {
   it("Should login with valid credentials", async () => {
     allureReporter.addFeature('Login to wordpress')
@@ -29,6 +31,9 @@ describe("Login to wordpress", () => {
     assert.strict.equal(pageTitle, expectedPageTitle);
     //asset chai
     expect(pageTitle).to.equal('Login - Female Daily');
+
+    const accountNotFound2 = await $(accountNotFound);
+    console.log(await accountNotFound2.getText());
 
     await browser.pause(2000);
   });
