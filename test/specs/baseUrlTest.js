@@ -19,6 +19,12 @@ async function checkAccountNotFound() {
   await expect(accountNotFound2).toMatch('Uh-oh! Account not founddd!')
 }
 
+async function expectAccountNotFound() {
+  const accountNotFound2 = await $(accountNotFound).getText();
+  console.log('sadsdasd'+accountNotFound2);
+  expect(accountNotFound2).to.equal('Uh-oh! Account not found!');
+}
+
 describe("Login to wordpress", () => {
   it("Should login with valid credentials", async () => {
     allureReporter.addFeature('Login to wordpress')
@@ -49,9 +55,10 @@ describe("Login to wordpress", () => {
     expect(pageTitle).to.equal('Login - Female Daily');
 
     //assert by expect
-    const accountNotFound2 = await $(accountNotFound).getText();
-    console.log('sadsdasd'+accountNotFound2);
-    expect(accountNotFound2).to.equal('Uh-oh! Account not found!');
+    // const accountNotFound2 = await $(accountNotFound).getText();
+    // console.log('sadsdasd'+accountNotFound2);
+    // expect(accountNotFound2).to.equal('Uh-oh! Account not found!');
+    expectAccountNotFound();
 
     await browser.pause(2000);
   });
