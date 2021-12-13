@@ -3,6 +3,22 @@ const allureReporter = require('@wdio/allure-reporter').default;
 
 var accountNotFound = "(//h1[normalize-space()='Uh-oh! Account not found!'])[1]";
 
+//problem with assert,assert wrong, but test is passed
+function confirmSuccessfulSubmission() {
+  browser.pause(2000);
+  const accountNotFound3 = $(accountNotFound);
+  var validateSubmissionHeader = browser.waitUntil(function() {
+    return browser.getText(accountNotFound3) == 'Uh-oh! Account not found!'
+  }, 3000)
+  expect(validateSubmissionHeader, 'Successful Submission Message does not Exist!').to.be.true;
+}
+
+//problem with assert,assert wrong, but test is passed
+async function checkAccountNotFound() {
+  const accountNotFound2 = $(accountNotFound);
+  await expect(accountNotFound2).toMatch('Uh-oh! Account not founddd!')
+}
+
 describe("Login to wordpress", () => {
   it("Should login with valid credentials", async () => {
     allureReporter.addFeature('Login to wordpress')
@@ -29,11 +45,13 @@ describe("Login to wordpress", () => {
 
     //assert node
     assert.strict.equal(pageTitle, expectedPageTitle);
-    //asset chai
+    //assert by expect
     expect(pageTitle).to.equal('Login - Female Daily');
 
-    const accountNotFound2 = await $(accountNotFound);
-    console.log(await accountNotFound2.getText());
+    //assert by expect
+    const accountNotFound2 = await $(accountNotFound).getText();
+    console.log('sadsdasd'+accountNotFound2);
+    expect(accountNotFound2).to.equal('Uh-oh! Account not found!');
 
     await browser.pause(2000);
   });
