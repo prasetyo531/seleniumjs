@@ -26,9 +26,9 @@ describe("Login to wordpress", () => {
     await browser.url('/');
     await browser.pause(7000);
 
-    HomePage.clickLogin();
+    await HomePage.clickLogin();
 
-    LoginPage.login('asdsd123','sdasda');
+    await LoginPage.login('asdsd123','sdasda');
 
     await browser.pause(2000);
     const pageTitle = await browser.getTitle();

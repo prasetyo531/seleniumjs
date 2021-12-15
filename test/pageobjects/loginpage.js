@@ -36,11 +36,9 @@ class loginpage extends Page {
     }
 
     async expectAccountNotFound() {
-        // isDisplayed = await modalAccountNotFound.isDisplayed();
-        await expect(modalAccountNotFound).toHaveTextContaining(
+        await this.modalAccountNotFound.waitForDisplayed();
+        await expect(this.modalAccountNotFound).toHaveTextContaining(
           'Uh-oh! Account not found!');
-
-        console.log('wadudaw '+modalAccountNotFound.getText);
     }
 
     /**

@@ -11,17 +11,14 @@ class homepage extends Page {
         return $('#id_carthome');
     }
 
-    get submitButton() {
+    get loginSignupButton() {
         return $('#id_loginsignup_home');
     }
 
-    click() {
-        this.submitButton.click();
-    }
-
-    clickLogin() {
-        this.click();
-    }
+    async clickLogin() {
+        await this.loginSignupButton.waitForDisplayed();
+        await this.loginSignupButton.click();
+      }
 }
 
 module.exports = new homepage();

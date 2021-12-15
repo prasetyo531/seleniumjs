@@ -29,7 +29,7 @@ exports.config = {
     specs: ['./test/specs/**/*.js'],
     suites: {
         smoke: [
-            "./test/specs/baseUrlTest.js",
+            "./test/specs/validation.js",
             ],
            },
     // Patterns to exclude.
