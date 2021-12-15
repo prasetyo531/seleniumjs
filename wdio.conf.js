@@ -208,7 +208,6 @@ exports.config = {
      before: function (capabilities, specs) {
         assert = require('assert');
         expect = require('chai').expect;
-        should = require('chai').should();
     },
     /**
      * Runs before a WebdriverIO command gets executed.

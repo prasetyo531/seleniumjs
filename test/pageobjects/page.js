@@ -8,6 +8,7 @@ module.exports = class Page {
     * @param path path of the sub page (e.g. /path/to/page.html)
     */
     open(path) {
-        return browser.url(`/${path}`)
+        browser.setWindowSize(1800, 1200);
+        browser.url(`/${path}`)
     }
 }
