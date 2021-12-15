@@ -2,9 +2,7 @@ const HomePage = require('../pageobjects/homepage');
 const LoginPage = require('../pageobjects/loginpage');
 
 const expectedPageTitle = "Login - Female Daily";
-const allureReporter = require('@wdio/allure-reporter').default;
-
-var accountNotFound = "(//h1[normalize-space()='Uh-oh! Account not found!'])[1]";
+const allureReporter = require('@wdio/allure-reporter').default
 
 //problem with assert,assert wrong, but test is passed
 function confirmSuccessfulSubmission() {
@@ -20,15 +18,6 @@ function confirmSuccessfulSubmission() {
 async function checkAccountNotFound() {
   const accountNotFound2 = $(accountNotFound);
   await expect(accountNotFound2).toMatch('Uh-oh! Account not founddd!')
-}
-
-//problem with assert,assert wrong, but test is passed
-async function expectAccountNotFound() {
-  const accountNotFound2 = await $(accountNotFound).getText();
-  console.log('sadsdasd'+accountNotFound2);
-  //expect(accountNotFound2).to.contains('Uh-oh! Account not found!');
-  //assert.strict.equal(accountNotFound2, "expectedPageTitle");
-  expect(accountNotFound2).to.strict('Thank You for your Message!');
 }
 
 describe("Login to wordpress", () => {
@@ -49,11 +38,16 @@ describe("Login to wordpress", () => {
     //assert by expect
     expect(pageTitle).to.equal('Login - Female Daily');
 
+    await expect(LoginPage.modalAccountNotFound).equal(
+      'Uh-oh! Account not found!');
+
+    console.log('wadudaw '+LoginPage.modalAccountNotFound.getText);
+
     //assert by expect
     // const accountNotFound2 = await $(accountNotFound).getText();
     // console.log('sadsdasd'+accountNotFound2);
     // expect(accountNotFound2).to.equal('Uh-oh! Account not found!');
-    expectAccountNotFound();
+    //LoginPage.expectAccountNotFound();
 
     await browser.pause(2000);
   });

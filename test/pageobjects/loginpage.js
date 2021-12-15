@@ -21,6 +21,10 @@ class loginpage extends Page {
         return $('#id_btn_login');
     }
 
+    get modalAccountNotFound() {
+        return $("(//h1[normalize-space()='Uh-oh! Account not found!'])[1]");
+    }
+
     /**
      * a method to encapsule automation code to interact with the page
      * e.g. to login using username and password
@@ -32,6 +36,18 @@ class loginpage extends Page {
         await this.inputPassword.setValue(password);
         await this.btnSubmit.click();
     }
+
+    /*
+    //problem with assert,assert wrong, but test is passed
+    async expectAccountNotFound() {
+        const accountNotFound2 = await $(modalAccountNotFound).getText();
+        console.log('coba deh: '+accountNotFound2);
+        //expect(accountNotFound2).to.contains('Uh-oh! Account not found!');
+        //assert.strict.equal(accountNotFound2, "expectedPageTitle");
+        await expect(modalAccountNotFound).toEqual(
+        'You logged into a secure area!');
+    }
+    */
 
     /**
      * overwrite specific options to adapt it to page object
