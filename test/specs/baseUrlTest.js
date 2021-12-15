@@ -1,5 +1,7 @@
 const HomePage = require('../pageobjects/homepage');
 const LoginPage = require('../pageobjects/loginpage');
+// const assert = require('assert');
+import assert from 'assert';
 
 const expectedPageTitle = "Login - Female Daily";
 const allureReporter = require('@wdio/allure-reporter').default
@@ -38,7 +40,7 @@ describe("Login to wordpress", () => {
     //assert by expect
     expect(pageTitle).toEqual('Login - Female Daily');
     
-    LoginPage.expectAccountNotFound();
+    await LoginPage.expectAccountNotFound();
 
     //assert by expect
     // const accountNotFound2 = await $(accountNotFound).getText();

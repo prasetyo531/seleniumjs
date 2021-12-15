@@ -1,5 +1,7 @@
-const HomePage = require('../pageobjects/homepage');
-const LoginPage = require('../pageobjects/loginpage');
+import HomePage from "../pageobjects/homepage";
+import LoginPage from "../pageobjects/loginpage";
+// const assert = require('assert');
+import assert from 'assert';
 
 const expectedPageTitle = "Login - Female Daily";
 const allureReporter = require('@wdio/allure-reporter').default;

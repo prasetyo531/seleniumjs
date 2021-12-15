@@ -31,6 +31,9 @@ exports.config = {
         smoke: [
             "./test/specs/validation.js",
             ],
+        sanity: [
+            "./test/specs/baseUrlTest.js",
+            ],    
            },
     // Patterns to exclude.
     exclude: [
@@ -160,7 +163,8 @@ exports.config = {
     // See the full list at http://mochajs.org/
     mochaOpts: {
         ui: 'bdd',
-        timeout: 80000
+        timeout: 80000,
+        compilers: ['js:@babel/register']
     },
     //
     // =====
@@ -206,7 +210,9 @@ exports.config = {
      * @param {Object}         browser      instance of created browser/device session
      */
      before: function (capabilities, specs) {
-        assert = require('assert');
+        require('@babel/register');
+        //require('assert');
+        //assert = require('assert');
     },
     /**
      * Runs before a WebdriverIO command gets executed.

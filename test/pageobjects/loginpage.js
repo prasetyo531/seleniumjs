@@ -1,4 +1,4 @@
-const Page = require('./page');
+import Page from "./page";
 
 /**
  * sub page containing specific selectors and methods for a specific page
@@ -37,8 +37,10 @@ class loginpage extends Page {
 
     async expectAccountNotFound() {
         await this.modalAccountNotFound.waitForDisplayed();
-        await expect(this.modalAccountNotFound).toHaveTextContaining(
-          'Uh-oh! Account not found!');
+        // await expect(this.modalAccountNotFound).toHaveTextContaining(
+        //   'Uh-oh! Account not found!');
+          await expect(this.modalAccountNotFound).toHaveText(
+            'Uh-oh! Account not found!');  
     }
 
     /**
