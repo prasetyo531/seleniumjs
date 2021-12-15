@@ -36,20 +36,15 @@ describe("Login to wordpress", () => {
     //assert node
     assert.strict.equal(pageTitle, expectedPageTitle);
     //assert by expect
-    expect(pageTitle).to.equal('Login - Female Daily');
-
-    await expect(LoginPage.modalAccountNotFound).equal(
-      'Uh-oh! Account not found!');
-
-    console.log('wadudaw '+LoginPage.modalAccountNotFound.getText);
+    expect(pageTitle).toEqual('Login - Female Daily');
+    
+    LoginPage.expectAccountNotFound();
 
     //assert by expect
     // const accountNotFound2 = await $(accountNotFound).getText();
     // console.log('sadsdasd'+accountNotFound2);
     // expect(accountNotFound2).to.equal('Uh-oh! Account not found!');
     //LoginPage.expectAccountNotFound();
-
-    await browser.pause(2000);
   });
 });
 

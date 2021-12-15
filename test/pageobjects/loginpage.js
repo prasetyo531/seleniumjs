@@ -1,5 +1,3 @@
-
-
 const Page = require('./page');
 
 /**
@@ -37,17 +35,13 @@ class loginpage extends Page {
         await this.btnSubmit.click();
     }
 
-    /*
-    //problem with assert,assert wrong, but test is passed
     async expectAccountNotFound() {
-        const accountNotFound2 = await $(modalAccountNotFound).getText();
-        console.log('coba deh: '+accountNotFound2);
-        //expect(accountNotFound2).to.contains('Uh-oh! Account not found!');
-        //assert.strict.equal(accountNotFound2, "expectedPageTitle");
-        await expect(modalAccountNotFound).toEqual(
-        'You logged into a secure area!');
+        // isDisplayed = await modalAccountNotFound.isDisplayed();
+        await expect(modalAccountNotFound).toHaveTextContaining(
+          'Uh-oh! Account not found!');
+
+        console.log('wadudaw '+modalAccountNotFound.getText);
     }
-    */
 
     /**
      * overwrite specific options to adapt it to page object
