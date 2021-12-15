@@ -1,3 +1,6 @@
+const HomePage = require('../pageobjects/homepage');
+const LoginPage = require('../pageobjects/loginpage');
+
 const expectedPageTitle = "Login - Female Daily";
 const allureReporter = require('@wdio/allure-reporter').default;
 
@@ -25,6 +28,7 @@ async function expectAccountNotFound() {
   console.log('sadsdasd'+accountNotFound2);
   //expect(accountNotFound2).to.contains('Uh-oh! Account not found!');
   //assert.strict.equal(accountNotFound2, "expectedPageTitle");
+  expect(accountNotFound2).to.strict('Thank You for your Message!');
 }
 
 describe("Login to wordpress", () => {
@@ -33,20 +37,9 @@ describe("Login to wordpress", () => {
     await browser.url('/');
     await browser.pause(7000);
 
-    await (await browser.$("#id_loginsignup_home")).click();
+    HomePage.clickLogin();
 
-    const userName = await browser.$("#id_field_login");
-    await userName.setValue("wdiotraining");
-
-    await (await browser.$("#id_btn_login")).isEnabled();
-    await (await browser.$("#id_btn_login")).click();
-
-    const userPass = await browser.$("#id_field_pass");
-    await userPass.setValue("wdiopass");
-    await browser.pause(2000);
-
-    const submitBtn = await browser.$("#id_btn_login");
-    await submitBtn.click();
+    LoginPage.login('asdsd123','sdasda');
 
     await browser.pause(2000);
     const pageTitle = await browser.getTitle();
@@ -60,7 +53,6 @@ describe("Login to wordpress", () => {
     // const accountNotFound2 = await $(accountNotFound).getText();
     // console.log('sadsdasd'+accountNotFound2);
     // expect(accountNotFound2).to.equal('Uh-oh! Account not found!');
-    await browser.pause(2000);
     expectAccountNotFound();
 
     await browser.pause(2000);

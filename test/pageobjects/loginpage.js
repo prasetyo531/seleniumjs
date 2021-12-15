@@ -5,20 +5,20 @@ const Page = require('./page');
 /**
  * sub page containing specific selectors and methods for a specific page
  */
-class LoginPage extends Page {
+class loginpage extends Page {
     /**
      * define selectors using getter methods
      */
     get inputUsername() {
-        return $('#username');
+        return $('#id_field_login');
     }
 
     get inputPassword() {
-        return $('#password');
+        return $('#id_field_pass');
     }
 
     get btnSubmit() {
-        return $('button[type="submit"]');
+        return $('#id_btn_login');
     }
 
     /**
@@ -26,7 +26,9 @@ class LoginPage extends Page {
      * e.g. to login using username and password
      */
     async login (username, password) {
+        //await (await browser.$(btnSubmit)).isEnabled();
         await this.inputUsername.setValue(username);
+        await this.btnSubmit.click();
         await this.inputPassword.setValue(password);
         await this.btnSubmit.click();
     }
@@ -39,4 +41,4 @@ class LoginPage extends Page {
     }
 }
 
-module.exports = new LoginPage();
+module.exports = new loginpage();

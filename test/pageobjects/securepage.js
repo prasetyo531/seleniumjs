@@ -5,7 +5,7 @@ const Page = require('./page');
 /**
  * sub page containing specific selectors and methods for a specific page
  */
-class SecurePage extends Page {
+class securepage extends Page {
     /**
      * define selectors using getter methods
      */
@@ -14,4 +14,4 @@ class SecurePage extends Page {
     }
 }
 
-module.exports = new SecurePage();
+module.exports = new securepage();
