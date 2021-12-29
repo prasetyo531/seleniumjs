@@ -130,7 +130,7 @@ exports.config = {
             logFileName: 'wdio-chromedriver.log', // default
             outputDir: 'driver-logs', // overwrites the config.outputDir
             args: ['--silent'],
-            chromedriverCustomPath: '/Users/flp-9-prasetyoputranto/Documents/Automation/bdd.webdriverio.flip/chromedriver'
+            chromedriverCustomPath: '/Users/flp-9-prasetyoputranto/Documents/Automation/seleniumjs/chromedriver'
         }]
       ],
     
